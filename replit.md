@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is an interactive web-based human body anatomy diagram that allows users to explore different body parts through clickable labels. The application features a visual representation of the human body with interactive elements that display detailed information about various organs and body systems. Built with vanilla HTML, CSS, and JavaScript, it provides an educational tool for learning about human anatomy.
+This project is an interactive web-based human body anatomy diagram that allows users to explore different body parts through clickable labels. The application features a skeletal system diagram with interactive elements that display detailed information about various bones and anatomical structures. Built with vanilla HTML, CSS, and JavaScript, it provides an educational tool for learning about human skeletal anatomy based on the user's Figma design specifications.
 
 ## User Preferences
 
@@ -56,6 +56,7 @@ Preferred communication style: Simple, everyday language.
 ### Current Dependencies
 - **None**: Project uses only vanilla web technologies
 - **Font**: Uses system font (Arial) as fallback
+- **Background Image**: Uses user-provided human body diagram from attached assets
 
 ### Potential Future Dependencies
 - **Anatomy Images**: May require high-quality human body diagram images
