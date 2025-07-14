@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Human Body Anatomy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Background image container -->
+        <div class="body-diagram" id="bodyDiagram">
+            <!-- Human body background will be applied via CSS -->
+        </div>
+        
+        <!-- Interactive labels positioned over anatomy parts -->
+        <div class="labels-container">
+            <!-- Head and Brain -->
+            <div class="label" data-part="brain" style="top: 8%; left: 50%;">
+                <span class="label-text">Brain</span>
+                <div class="label-info">
+                    <h3>Brain</h3>
+                    <p>The control center of the nervous system, responsible for thought, memory, emotion, and motor skills.</p>
+                </div>
+            </div>
+            
+            <!-- Eyes -->
+            <div class="label" data-part="eyes" style="top: 12%; left: 50%;">
+                <span class="label-text">Eyes</span>
+                <div class="label-info">
+                    <h3>Eyes</h3>
+                    <p>Organs of vision that detect light and convert it into electrical signals for the brain.</p>
+                </div>
+            </div>
+            
+            <!-- Heart -->
+            <div class="label" data-part="heart" style="top: 25%; left: 45%;">
+                <span class="label-text">Heart</span>
+                <div class="label-info">
+                    <h3>Heart</h3>
+                    <p>Muscular organ that pumps blood throughout the body via the circulatory system.</p>
+                </div>
+            </div>
+            
+            <!-- Lungs -->
+            <div class="label" data-part="lungs" style="top: 22%; left: 55%;">
+                <span class="label-text">Lungs</span>
+                <div class="label-info">
+                    <h3>Lungs</h3>
+                    <p>Respiratory organs that facilitate gas exchange between air and blood.</p>
+                </div>
+            </div>
+            
+            <!-- Liver -->
+            <div class="label" data-part="liver" style="top: 32%; left: 42%;">
+                <span class="label-text">Liver</span>
+                <div class="label-info">
+                    <h3>Liver</h3>
+                    <p>Largest internal organ, responsible for detoxification, protein synthesis, and metabolism.</p>
+                </div>
+            </div>
+            
+            <!-- Stomach -->
+            <div class="label" data-part="stomach" style="top: 35%; left: 48%;">
+                <span class="label-text">Stomach</span>
+                <div class="label-info">
+                    <h3>Stomach</h3>
+                    <p>Digestive organ that breaks down food using acid and enzymes.</p>
+                </div>
+            </div>
+            
+            <!-- Kidneys -->
+            <div class="label" data-part="kidneys" style="top: 40%; left: 52%;">
+                <span class="label-text">Kidneys</span>
+                <div class="label-info">
+                    <h3>Kidneys</h3>
+                    <p>Organs that filter waste products and excess water from the blood to form urine.</p>
+                </div>
+            </div>
+            
+            <!-- Intestines -->
+            <div class="label" data-part="intestines" style="top: 45%; left: 50%;">
+                <span class="label-text">Intestines</span>
+                <div class="label-info">
+                    <h3>Intestines</h3>
+                    <p>Long tube-like organs that complete the digestion and absorption of nutrients.</p>
+                </div>
+            </div>
+            
+            <!-- Left Arm -->
+            <div class="label" data-part="left-arm" style="top: 30%; left: 25%;">
+                <span class="label-text">Arm</span>
+                <div class="label-info">
+                    <h3>Arm</h3>
+                    <p>Upper limb consisting of bones, muscles, and joints for movement and manipulation.</p>
+                </div>
+            </div>
+            
+            <!-- Right Arm -->
+            <div class="label" data-part="right-arm" style="top: 30%; left: 75%;">
+                <span class="label-text">Arm</span>
+                <div class="label-info">
+                    <h3>Arm</h3>
+                    <p>Upper limb consisting of bones, muscles, and joints for movement and manipulation.</p>
+                </div>
+            </div>
+            
+            <!-- Left Leg -->
+            <div class="label" data-part="left-leg" style="top: 65%; left: 45%;">
+                <span class="label-text">Leg</span>
+                <div class="label-info">
+                    <h3>Leg</h3>
+                    <p>Lower limb used for standing, walking, and running, containing strong bones and muscles.</p>
+                </div>
+            </div>
+            
+            <!-- Right Leg -->
+            <div class="label" data-part="right-leg" style="top: 65%; left: 55%;">
+                <span class="label-text">Leg</span>
+                <div class="label-info">
+                    <h3>Leg</h3>
+                    <p>Lower limb used for standing, walking, and running, containing strong bones and muscles.</p>
+                </div>
+            </div>
+            
+            <!-- Spine -->
+            <div class="label" data-part="spine" style="top: 35%; left: 58%;">
+                <span class="label-text">Spine</span>
+                <div class="label-info">
+                    <h3>Spine</h3>
+                    <p>Backbone consisting of vertebrae that protects the spinal cord and supports the body.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Info panel for detailed information -->
+        <div class="info-panel" id="infoPanel">
+            <div class="info-content">
+                <button class="close-btn" id="closeBtn">&times;</button>
+                <div class="info-text" id="infoText">
+                    <h2>Select a body part</h2>
+                    <p>Click on any labeled part to learn more about it.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
