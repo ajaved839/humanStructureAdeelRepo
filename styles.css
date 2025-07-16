@@ -54,6 +54,9 @@ body {
     user-select: none;
     z-index: 3;
     opacity: 0.9;
+    /* CSS custom properties for responsive positioning */
+    --original-right: 50%;
+    --original-left: 50%;
 }
 
 .label-text {
@@ -70,6 +73,23 @@ body {
     position: relative;
     z-index: 4;
     white-space: nowrap;
+}
+
+/* Special styling for circular label-text elements */
+.label-text:not(img) {
+    background: #000000;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .label-text::before {
@@ -210,9 +230,16 @@ body {
 
 /* Responsive design */
 @media (max-width: 768px) {
+    .body-diagram {
+        background-size: cover;
+    }
+    
     .label-text {
+        font-size: 10px;
+        padding: 4px 6px;
+        width: 20px;
+        height: 20px;
         font-size: 12px;
-        padding: 6px 10px;
     }
     
     .info-panel {
@@ -226,6 +253,22 @@ body {
         font-size: 12px;
     }
     
+    /* Reduce right and left positioning by 20% on tablet screens */
+    .label[style*="right: 38%"] { right: 30.4% !important; }
+    .label[style*="right: 41%"] { right: 32.8% !important; }
+    .label[style*="right: 42%"] { right: 33.6% !important; }
+    .label[style*="right: 43%"] { right: 34.4% !important; }
+    .label[style*="right: 44%"] { right: 35.2% !important; }
+    .label[style*="right: 45%"] { right: 36% !important; }
+    .label[style*="right: 46%"] { right: 36.8% !important; }
+    .label[style*="right: 47%"] { right: 37.6% !important; }
+    .label[style*="right: 48%"] { right: 38.4% !important; }
+    .label[style*="right: 49%"] { right: 39.2% !important; }
+    .label[style*="right: 50%"] { right: 40% !important; }
+    
+    .label[style*="left: 40%"] { left: 32% !important; }
+    .label[style*="left: 45%"] { left: 36% !important; }
+    
     .label-info h3 {
         font-size: 16px;
     }
@@ -233,8 +276,11 @@ body {
 
 @media (max-width: 480px) {
     .label-text {
+        font-size: 8px;
+        padding: 3px 5px;
+        width: 18px;
+        height: 18px;
         font-size: 10px;
-        padding: 4px 8px;
     }
     
     .info-panel {
@@ -246,6 +292,22 @@ body {
     .label-info {
         width: 180px;
     }
+    
+    /* Reduce right and left positioning by 20% on mobile screens */
+    .label[style*="right: 38%"] { right: 30.4% !important; }
+    .label[style*="right: 41%"] { right: 14.8% !important; }
+    .label[style*="right: 42%"] { right: 21.6% !important; }
+    .label[style*="right: 43%"] { right: 22.4% !important; }
+    .label[style*="right: 44%"] { right: 35.2% !important; }
+    .label[style*="right: 45%"] { right: 36% !important; }
+    .label[style*="right: 46%"] { right: 31% !important; }
+    .label[style*="right: 47%"] { right: 45% !important; }
+    .label[style*="right: 48%"] { right: 45% !important; }
+    .label[style*="right: 49%"] { right: 39.2% !important; }
+    .label[style*="right: 50%"] { right: 40% !important; }
+    
+    .label[style*="left: 40%"] { left: 20% !important; }
+    .label[style*="left: 45%"] { left: 30% !important; }
 }
 
 /* Touch-friendly interactions */
@@ -259,8 +321,10 @@ body {
     }
     
     .label-text {
-        padding: 10px 15px;
-        font-size: 16px;
+        padding: 6px 8px;
+        font-size: 12px;
+        width: 24px;
+        height: 24px;
     }
 }
 
@@ -305,6 +369,27 @@ body {
 
 .label-text {
     -webkit-tap-highlight-color: transparent;
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+    .label {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    
+    .label:active {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+}
+
+@media (max-width: 480px) {
+    .label {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+    
+    .label:active {
+        transform: translate(-50%, -50%) scale(0.6);
+    }
 }
 
 /* Print styles */
