@@ -177,56 +177,7 @@ body {
     line-height: 1.5;
 }
 
-/* Info panel */
-.info-panel {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 300px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-}
 
-.info-panel.active {
-    transform: translateX(0);
-}
-
-.info-content {
-    padding: 20px;
-    position: relative;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #999;
-    transition: color 0.3s ease;
-}
-
-.close-btn:hover {
-    color: #333;
-}
-
-.info-text h2 {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 22px;
-}
-
-.info-text p {
-    color: #666;
-    line-height: 1.6;
-    font-size: 14px;
-}
 
 /* Responsive design */
 @media (max-width: 768px) {
@@ -242,11 +193,7 @@ body {
         font-size: 12px;
     }
     
-    .info-panel {
-        width: calc(100% - 40px);
-        right: 20px;
-        top: 20px;
-    }
+
     
     .label-info {
         width: 200px;
@@ -283,11 +230,7 @@ body {
         font-size: 10px;
     }
     
-    .info-panel {
-        width: calc(100% - 20px);
-        right: 10px;
-        top: 10px;
-    }
+
     
     .label-info {
         width: 180px;
@@ -392,9 +335,160 @@ body {
     }
 }
 
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: #A1938C;
+    color: white;
+    padding: 20px 25px;
+    position: relative;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    padding: 25px;
+    line-height: 1.6;
+    color: #333;
+    font-size: 16px;
+}
+
+.modal-body p {
+    margin: 0 0 15px 0;
+    color: #666;
+}
+
+.modal-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive modal */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        max-width: none;
+    }
+    
+    .modal-header {
+        padding: 15px 20px;
+    }
+    
+    .modal-title {
+        font-size: 20px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        margin: 5% auto;
+        width: 98%;
+    }
+    
+    .modal-header {
+        padding: 12px 15px;
+    }
+    
+    .modal-title {
+        font-size: 18px;
+    }
+    
+    .modal-body {
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+    .modal-close {
+        width: 30px;
+        height: 30px;
+        font-size: 24px;
+        top: 10px;
+        right: 15px;
+    }
+}
+
 /* Print styles */
 @media print {
-    .info-panel {
+    .modal {
         display: none;
     }
     

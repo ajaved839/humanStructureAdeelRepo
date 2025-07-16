@@ -237,7 +237,7 @@
 
 
             <!-- Urinary symptoms -->
-            <div class="label" data-part="sternum"  style="top: 8%; right: 44%; top: 87%;">
+            <div class="label" data-part="sternum"  style="top: 8%; right: 46%; top: 87%;">
                 <div class="label-text">
                     +
                 </div>
@@ -267,12 +267,14 @@
            
         </div>
         
-        <!-- Info panel for detailed information -->
-        <div class="info-panel" id="infoPanel">
-            <div class="info-content">
-                <button class="close-btn" id="closeBtn">&times;</button>
-                <div class="info-text" id="infoText">
-                    <h2>Select a body part</h2>
+        <!-- Modal for detailed information -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalTitle">Select a body part</h2>
+                    <button class="modal-close" id="modalClose">&times;</button>
+                </div>
+                <div class="modal-body" id="modalBody">
                     <p>Click on any labeled part to learn more about it.</p>
                 </div>
             </div>

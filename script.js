@@ -2,9 +2,10 @@
 class AnatomyDiagram {
     constructor() {
         this.labels = document.querySelectorAll('.label');
-        this.infoPanel = document.getElementById('infoPanel');
-        this.infoText = document.getElementById('infoText');
-        this.closeBtn = document.getElementById('closeBtn');
+        this.modal = document.getElementById('modal');
+        this.modalTitle = document.getElementById('modalTitle');
+        this.modalBody = document.getElementById('modalBody');
+        this.modalClose = document.getElementById('modalClose');
         this.bodyDiagram = document.getElementById('bodyDiagram');
         this.activeLabel = null;
         this.isMobile = window.innerWidth <= 768;
@@ -54,22 +55,22 @@ class AnatomyDiagram {
             });
         });
 
-        // Info panel close button
-        this.closeBtn.addEventListener('click', () => {
-            this.closeInfoPanel();
+        // Modal close button
+        this.modalClose.addEventListener('click', () => {
+            this.closeModal();
         });
 
-        // Close info panel when clicking outside
+        // Close modal when clicking outside
         document.addEventListener('click', (e) => {
-            if (!this.infoPanel.contains(e.target) && !e.target.closest('.label')) {
-                this.closeInfoPanel();
+            if (e.target === this.modal) {
+                this.closeModal();
             }
         });
 
-        // Escape key to close info panel
+        // Escape key to close modal
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                this.closeInfoPanel();
+                this.closeModal();
             }
         });
 
@@ -101,11 +102,11 @@ class AnatomyDiagram {
         const title = labelInfo.querySelector('h3').textContent;
         const description = labelInfo.querySelector('p').textContent;
         
-        // Update info panel content
-        this.updateInfoPanel(title, description);
+        // Update modal content
+        this.updateModal(title, description);
         
-        // Show info panel
-        this.showInfoPanel();
+        // Show modal
+        this.showModal();
         
         // Add pulse animation
         label.classList.add('pulse');
@@ -131,19 +132,19 @@ class AnatomyDiagram {
         }
     }
 
-    updateInfoPanel(title, description) {
-        this.infoText.innerHTML = `
-            <h2>${title}</h2>
-            <p>${description}</p>
-        `;
+    updateModal(title, description) {
+        this.modalTitle.textContent = title;
+        this.modalBody.innerHTML = `<p>${description}</p>`;
     }
 
-    showInfoPanel() {
-        this.infoPanel.classList.add('active');
+    showModal() {
+        this.modal.style.display = 'block';
+        // Focus the close button for accessibility
+        this.modalClose.focus();
     }
 
-    closeInfoPanel() {
-        this.infoPanel.classList.remove('active');
+    closeModal() {
+        this.modal.style.display = 'none';
         
         // Remove active state from all labels
         this.labels.forEach(label => {
@@ -154,11 +155,9 @@ class AnatomyDiagram {
         
         this.activeLabel = null;
         
-        // Reset info panel content
-        this.infoText.innerHTML = `
-            <h2>Select a body part</h2>
-            <p>Click on any labeled part to learn more about it.</p>
-        `;
+        // Reset modal content
+        this.modalTitle.textContent = 'Select a body part';
+        this.modalBody.innerHTML = '<p>Click on any labeled part to learn more about it.</p>';
     }
 
     setupResponsiveDesign() {
@@ -224,9 +223,9 @@ class AnatomyDiagram {
         // Update mobile detection
         this.isMobile = window.innerWidth <= 768;
         
-        // Close info panel on orientation change
+        // Close modal on orientation change
         if (this.isMobile) {
-            this.closeInfoPanel();
+            this.closeModal();
         }
         
         // Recalculate positions if needed
@@ -252,7 +251,7 @@ class AnatomyDiagram {
     }
 
     resetDiagram() {
-        this.closeInfoPanel();
+        this.closeModal();
         this.labels.forEach(label => {
             label.classList.remove('active', 'pulse');
         });
